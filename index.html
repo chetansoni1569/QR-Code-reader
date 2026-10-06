@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <meta
+      name="description"
+      content="Free online QR Code Generator. Enter any URL and instantly generate a scannable QR code. Download as PNG."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- QR Code library (qrcode.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Animated background blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <main class="main-wrapper">
+      <div class="card" id="app-card">
+        <!-- Header -->
+        <div class="card-header">
+          <div class="logo-icon" aria-hidden="true">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="3" y="3" width="8" height="8" rx="1.5" fill="currentColor" />
+              <rect x="5" y="5" width="4" height="4" fill="white" />
+              <rect x="13" y="3" width="8" height="8" rx="1.5" fill="currentColor" />
+              <rect x="15" y="5" width="4" height="4" fill="white" />
+              <rect x="3" y="13" width="8" height="8" rx="1.5" fill="currentColor" />
+              <rect x="5" y="15" width="4" height="4" fill="white" />
+              <rect x="13" y="13" width="3" height="3" rx="0.5" fill="currentColor" />
+              <rect x="18" y="13" width="3" height="3" rx="0.5" fill="currentColor" />
+              <rect x="13" y="18" width="3" height="3" rx="0.5" fill="currentColor" />
+              <rect x="18" y="18" width="3" height="3" rx="0.5" fill="currentColor" />
+            </svg>
+          </div>
+          <h1 class="card-title">QR Code Generator</h1>
+          <p class="card-subtitle">Enter a link and generate a QR code instantly.</p>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+          <div class="input-wrapper" id="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </span>
+            <input
+              type="url"
+              id="url-input"
+              class="url-input"
+              placeholder="Enter your URL here..."
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Enter URL to generate QR code"
+            />
+            <button
+              class="clear-btn"
+              id="clear-btn"
+              aria-label="Clear input"
+              title="Clear"
+              style="display: none;"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Error Message -->
+          <div class="error-message" id="error-message" role="alert" aria-live="polite"></div>
+
+          <!-- Generate Button -->
+          <button class="generate-btn" id="generate-btn">
+            <span class="btn-text">Generate QR Code</span>
+            <span class="btn-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <!-- QR Code Output Section -->
+        <div class="qr-output" id="qr-output">
+          <div class="divider" aria-hidden="true"></div>
+
+          <div class="qr-container">
+            <div class="qr-frame">
+              <div id="qr-code-display"></div>
+            </div>
+            <p class="qr-url-label" id="qr-url-label"></p>
+          </div>
+
+          <!-- Download Button -->
+          <button class="download-btn" id="download-btn">
+            <span class="btn-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </span>
+            <span class="btn-text">Download QR Code</span>
+          </button>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>Scan with any camera app &bull; Works on all devices</p>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
